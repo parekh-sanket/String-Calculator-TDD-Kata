@@ -38,7 +38,7 @@ def check_negatives(num_list):
     if len(negative_num_list) > 0 :
         raise ValueError('Negatives not allowed {}'.format(negative_num_list))            
 
-# remove a number bigger then 1000
+# remove a number bigger than 1000
 def remove_big_number(num_list):
     for number in num_list:
         if number > 1000:
@@ -74,10 +74,10 @@ def add(calStr):
     
     num_list = number_list(calStr)
     
-    # if negative number in num_list then raise exception
+    # if negative number in num_list then raise an exception
     check_negatives(num_list)
     
-    # if number in num_list is larger then 1000 remove it
+    # if number in num_list is larger than 1000 remove it
     updated_num_list = remove_big_number(num_list)
     
     return sum_list(updated_num_list,odd_even_in)
