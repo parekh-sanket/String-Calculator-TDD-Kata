@@ -1,5 +1,6 @@
 import re
 
+# return list of number
 def number_list(calStr):
     # for empty string
     if calStr == '':
