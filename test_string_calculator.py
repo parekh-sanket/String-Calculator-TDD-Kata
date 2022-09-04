@@ -47,4 +47,10 @@ class test_calculator(unittest.TestCase):
         result = add("//[***]\n1***2***3")
         self.assertEqual(result, 6)
         
+    def test_odd_even_in_string(self):
+        result = add("0//1,2,3")
+        self.assertEqual(result, 2)
+        result = add("1//1,2,3")
+        self.assertEqual(result, 4)
+        
 unittest.main()

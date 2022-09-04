@@ -8,6 +8,7 @@ def number_list(calStr):
     
     pattern = ',|\n'
     
+    # for multiple delimiter
     delimiter = ""
     if calStr[0:2] == "//":
         calStr = calStr[2:]
@@ -46,18 +47,38 @@ def remove_big_number(num_list):
     return num_list
 
 # return sum of elemenets in list 
-def sum_list(num_list):
+def sum_list(num_list,odd_even_in):
     ans = 0; 
+    num_len = len(num_list)
+    
+    if odd_even_in == 0:
+        num_list = num_list[1:num_len+1:2]
+    elif odd_even_in == 1:
+        num_list = num_list[0:num_len+1:2]
+        
     for number in num_list:
          ans += number
     return ans
 
-
+# add function
 def add(calStr):
+    odd_even_in = None
+    if len(calStr) >= 3:
+        if calStr[:3] == "0//":
+            odd_even_in = 0
+        elif calStr[:3] == "1//":
+            odd_even_in = 1
+    
+    if odd_even_in != None:
+        calStr = calStr[3:]
+    
     num_list = number_list(calStr)
+    
     # if negative number in num_list then raise exception
     check_negatives(num_list)
+    
     # if number in num_list is larger then 1000 remove it
     updated_num_list = remove_big_number(num_list)
-    return sum_list(updated_num_list)
+    
+    return sum_list(updated_num_list,odd_even_in)
     
