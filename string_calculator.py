@@ -8,9 +8,19 @@ def number_list(calStr):
     
     pattern = ',|\n'
     
+    delimiter = ""
+    if calStr[0:2] == "//":
+        calStr = calStr[2:]
+        delimiter, calStr = re.split('\n',calStr, 1)
+    
+    if delimiter != "":
+        pattern +=  ('|' + delimiter)
+        
     num_list = []
     for num in re.split(pattern=pattern , string= calStr):
-        if len(num) <= 1 and ord(num) >= 97 and ord(num) <= 122:
+        if len(num) == 0 :
+            continue
+        elif len(num) <= 1 and ord(num) >= 97 and ord(num) <= 122:
             num_list.append(ord(num) - 96)
         else :
             num_list.append(int(num))

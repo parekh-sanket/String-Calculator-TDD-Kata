@@ -4,7 +4,7 @@ from string_calculator import add
 class test_calculator(unittest.TestCase):
     
     def test_empty_string(self):
-        result = add("")
+        result= add("")
         self.assertEqual(result, 0)
     
     def test_comma_in_string(self):
@@ -39,6 +39,12 @@ class test_calculator(unittest.TestCase):
         result = add("1\n2,3")
         self.assertEqual(result, 6)
         result = add("1\n2,3")
+        self.assertEqual(result, 6) 
+        
+    def test_diffrent_delimiters(self):
+        result = add("//;\n1;2")
+        self.assertEqual(result, 3)
+        result = add("//[***]\n1***2***3")
         self.assertEqual(result, 6)
         
 unittest.main()
