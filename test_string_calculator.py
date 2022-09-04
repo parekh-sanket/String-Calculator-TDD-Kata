@@ -23,4 +23,10 @@ class test_calculator(unittest.TestCase):
         result = add("50,80,60,70")
         self.assertEqual(result, 260)
         
+    def test_alphabets_in_string(self):
+        result = add("1,2,a,b")
+        self.assertEqual(result, 6)
+        result = add("10,20,b,z")
+        self.assertEqual(result, 58)
+        
 unittest.main()

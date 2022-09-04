@@ -10,7 +10,10 @@ def number_list(calStr):
     
     num_list = []
     for num in re.split(pattern=pattern , string= calStr):
-        num_list.append(int(num))
+        if len(num) <= 1 and ord(num) >= 97 and ord(num) <= 122:
+            num_list.append(ord(num) - 96)
+        else :
+            num_list.append(int(num))
     
     return num_list
 
