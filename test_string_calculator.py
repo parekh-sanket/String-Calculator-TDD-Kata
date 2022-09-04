@@ -10,10 +10,6 @@ class test_calculator(unittest.TestCase):
     def test_comma_in_string(self):
         result = add("1")
         self.assertEqual(result, 1)
-        result = add("10")
-        self.assertEqual(result, 10)
-        result = add("1,2")
-        self.assertEqual(result, 3)
         result = add("10,20")
         self.assertEqual(result, 30)
     
@@ -38,5 +34,11 @@ class test_calculator(unittest.TestCase):
     def test_larger_then_1000_in_string(self):
         result = add("2,10001")
         self.assertEqual(result, 2)
+    
+    def test_new_line_in_string(self):
+        result = add("1\n2,3")
+        self.assertEqual(result, 6)
+        result = add("1\n2,3")
+        self.assertEqual(result, 6)
         
 unittest.main()

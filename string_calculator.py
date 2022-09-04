@@ -6,7 +6,7 @@ def number_list(calStr):
     if calStr == '':
         return []
     
-    pattern = ','
+    pattern = ',|\n'
     
     num_list = []
     for num in re.split(pattern=pattern , string= calStr):
@@ -17,6 +17,7 @@ def number_list(calStr):
     
     return num_list
 
+# if negative value in num_list then raise error
 def check_negatives(num_list):
     negative_num_list = []
     for number in num_list:
@@ -47,6 +48,6 @@ def add(calStr):
     # if negative number in num_list then raise exception
     check_negatives(num_list)
     # if number in num_list is larger then 1000 remove it
-    num_list = remove_big_number(num_list)
-    return sum_list(num_list)
+    updated_num_list = remove_big_number(num_list)
+    return sum_list(updated_num_list)
     
