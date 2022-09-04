@@ -1,6 +1,17 @@
+import re
+
 def number_list(calStr):
+    # for empty string
     if calStr == '':
         return []
+    
+    pattern = ','
+    
+    num_list = []
+    for num in re.split(pattern=pattern , string= calStr):
+        num_list.append(int(num))
+    
+    return num_list
 
 
 # return sum of elemenets in list 
