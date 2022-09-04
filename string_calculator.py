@@ -26,6 +26,14 @@ def check_negatives(num_list):
     if len(negative_num_list) > 0 :
         raise ValueError('Negatives not allowed {}'.format(negative_num_list))            
 
+# remove a number bigger then 1000
+def remove_big_number(num_list):
+    for number in num_list:
+        if number > 1000:
+            num_list.remove(number)
+    
+    return num_list
+
 # return sum of elemenets in list 
 def sum_list(num_list):
     ans = 0; 
@@ -36,7 +44,9 @@ def sum_list(num_list):
 
 def add(calStr):
     num_list = number_list(calStr)
+    # if negative number in num_list then raise exception
     check_negatives(num_list)
-    
+    # if number in num_list is larger then 1000 remove it
+    num_list = remove_big_number(num_list)
     return sum_list(num_list)
     

@@ -34,6 +34,9 @@ class test_calculator(unittest.TestCase):
         self.assertRaises(ValueError, add ,"45,-45")
         # add("-49,-45,-100") # print all negative number in exception
         self.assertRaises(ValueError, add ,"-49,-45,-100")
-        
+
+    def test_larger_then_1000_in_string(self):
+        result = add("2,10001")
+        self.assertEqual(result, 2)
         
 unittest.main()
