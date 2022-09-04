@@ -17,6 +17,14 @@ def number_list(calStr):
     
     return num_list
 
+def check_negatives(num_list):
+    negative_num_list = []
+    for number in num_list:
+        if number < 0:
+            negative_num_list.append(number)
+    
+    if len(negative_num_list) > 0 :
+        raise ValueError('Negatives not allowed {}'.format(negative_num_list))            
 
 # return sum of elemenets in list 
 def sum_list(num_list):
@@ -28,5 +36,7 @@ def sum_list(num_list):
 
 def add(calStr):
     num_list = number_list(calStr)
+    check_negatives(num_list)
+    
     return sum_list(num_list)
     

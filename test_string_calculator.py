@@ -28,5 +28,12 @@ class test_calculator(unittest.TestCase):
         self.assertEqual(result, 6)
         result = add("10,20,b,z")
         self.assertEqual(result, 58)
+    
+    def test_negative_in_string(self):
+        # add("45,-45") # print negative number in exception
+        self.assertRaises(ValueError, add ,"45,-45")
+        # add("-49,-45,-100") # print all negative number in exception
+        self.assertRaises(ValueError, add ,"-49,-45,-100")
+        
         
 unittest.main()
