@@ -19,10 +19,10 @@ def number_list(calStr):
         
     num_list = []
     for num in re.split(pattern=pattern , string= calStr):
-        if len(num) == 0 :
+        if len(num) == 0:
             continue
-        elif len(num) <= 1 and ord(num) >= 97 and ord(num) <= 122:
-            num_list.append(ord(num) - 96)
+        elif len(num) <= 1 and ord(num) >= ord('a') and ord(num) <= ord('z'):
+            num_list.append(ord(num) - ord('a') + 1)
         else :
             num_list.append(int(num))
     
@@ -81,4 +81,3 @@ def add(calStr):
     updated_num_list = remove_big_number(num_list)
     
     return sum_list(updated_num_list,odd_even_in)
-    
